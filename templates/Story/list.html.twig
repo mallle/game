@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block headline  %}Stories
+{% endblock %}
+
+{% block linksTop  %}
+	<a href="{{ path('app_stories_new')}}" class="btn btn-sm btn-outline-secondary">New</a>
+{% endblock %}
+
+
+{% block body %}
+	<div class="table-responsive">
+		<table class="table table-striped table-sm">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Name</th>
+					<th>Published</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for story in stories%}
+					<tr>
+						<td>{{ story.id }}</td>
+						<td>{{ story.name }}</td>
+						<td>{{story.published ? 'Published' : 'Not Published' }}</td>
+						<td>
+							<a href="{{ path('app_stories_edit', { story: story.id })}}" class="btn btn-sm btn-outline-secondary">Edit</a>
+							<a href="{{ path('app_stories_delete', { story: story.id })}}" class="btn btn-sm btn-outline-secondary">Delete</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+{% endblock %}

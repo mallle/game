@@ -1,7 +1,15 @@
-{% extends "base.html.twig" %}
+{% extends 'base.html.twig' %}
+
+
+{% block headline %}
+	{% if story.id %}
+		Edit story:
+		{{ story.name }}
+	{% else %}
+		Create new story
+	{% endif %}
+{% endblock %}
 
 
 {% block body %}
-	<h1>hallo</h1>
-
 	{{ form(form) }}{% endblock %}
