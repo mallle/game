@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block headline  %}Questions
+{% endblock %}
+
+{% block linksTop  %}
+	<a href="{{ path('app_questions_new')}}" class="btn btn-sm btn-outline-secondary">New</a>
+{% endblock %}
+
+
+{% block body %}
+	<div class="table-responsive">
+		<table class="table table-striped table-sm">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Question</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for question in questions %}
+					<tr>
+						<td>{{ question.id }}</td>
+						<td>{{ question.question }}</td>
+						<td>
+							<a href="{{ path('app_questions_edit', { question: question.id })}}" class="btn btn-sm btn-outline-secondary">Edit</a>
+							<a href="{{ path('app_questions_delete', { question: question.id })}}" class="btn btn-sm btn-outline-secondary">Delete</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+{% endblock %}

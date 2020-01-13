@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block linksTop  %}
+	<a href="{{ path('app_questions_list')}}" class="btn btn-sm btn-outline-secondary">Back to overview</a>
+{% endblock %}
+
+{% block headline %}
+	{% if question.id %}
+		Edit question:
+		{{ question.id }}
+	{% else %}
+		Create new question
+	{% endif %}
+{% endblock %}
+
+
+{% block body %}
+	{{ form(form) }}{% endblock %}
