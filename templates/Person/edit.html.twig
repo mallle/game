@@ -1,15 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block linksTop  %}
-	<a href="{{ path('app_stories_list')}}" class="btn btn-sm btn-outline-secondary">Back to overview</a>
+	<a href="{{ path('app_persons_list')}}" class="btn btn-sm btn-outline-secondary">Back to overview</a>
 {% endblock %}
 
 {% block headline %}
-	{% if story.id %}
-		Edit story:
-		{{ story.name }}
+	{% if person.id %}
+		Edit person:
+		{{ person.name }}
 	{% else %}
-		Create new story
+		Create new person
 	{% endif %}
 {% endblock %}
 

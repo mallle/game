@@ -22,7 +22,7 @@ class StoryController extends AbstractController
     }
 
     /**
-     * @Route("/stories", name="app_stories")
+     * @Route("/stories", name="app_stories_list")
      */
     function list(StoryRepository $storyRepo) {
 

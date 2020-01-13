@@ -10,6 +10,7 @@ abstract class BaseFixture extends Fixture
 {
     /** @var ObjectManager */
     private $manager;
+
     /** @var Generator */
     protected $faker;
 
