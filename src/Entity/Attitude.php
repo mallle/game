@@ -12,6 +12,10 @@ class Attitude
 {
     use TimestampableEntity;
 
+    const NEUTRAL = 'neutral';
+    const GOOD = 'good';
+    const BAD = 'bad';
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -40,4 +44,14 @@ class Attitude
 
         return $this;
     }
+
+    public static function getTypes(): array
+    {
+        return [
+            static::NEUTRAL => static::NEUTRAL,
+            static::GOOD => static::GOOD,
+            static::BAD => static::BAD,
+        ];
+    }
+
 }

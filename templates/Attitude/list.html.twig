@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block headline  %}Attitudes
+{% endblock %}
+
+{% block linksTop  %}
+	<a href="{{ path('app_attitudes_new')}}" class="btn btn-sm btn-outline-secondary">New</a>
+{% endblock %}
+
+
+{% block body %}
+	<div class="table-responsive">
+		<table class="table table-striped table-sm">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Type</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for attitude in attitudes %}
+					<tr>
+						<td>{{ attitude.id }}</td>
+						<td>{{ attitude.type }}</td>
+						<td>
+							<a href="{{ path('app_attitudes_edit', { attitude: attitude.id })}}" class="btn btn-sm btn-outline-secondary">Edit</a>
+							<a href="{{ path('app_attitudes_delete', { attitude: attitude.id })}}" class="btn btn-sm btn-outline-secondary">Delete</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+{% endblock %}

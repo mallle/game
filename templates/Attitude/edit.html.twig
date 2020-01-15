@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block linksTop  %}
+	<a href="{{ path('app_attitudes_list')}}" class="btn btn-sm btn-outline-secondary">Back to overview</a>
+{% endblock %}
+
+{% block headline %}
+	{% if attitude.id %}
+		Edit attitude:
+		{{ attitude.type }}
+	{% else %}
+		Create new attitude
+	{% endif %}
+{% endblock %}
+
+
+{% block body %}
+	{{ form(form) }}{% endblock %}
