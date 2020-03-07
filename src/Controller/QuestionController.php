@@ -29,6 +29,7 @@ class QuestionController extends AbstractController
         $questions = $questionRepo->findAll();
 
         return $this->render('Question/list.html.twig', [
+            'navi' => 'questions',
             'questions' => $questions,
         ]);
     }
@@ -67,6 +68,7 @@ class QuestionController extends AbstractController
         $questions = $questionRepo->findAll();
 
         return $this->render('Question/list.html.twig', [
+            'navi' => 'questions',
             'questions' => $questions,
         ]);
     }
@@ -88,6 +90,7 @@ class QuestionController extends AbstractController
         }
 
         return $this->render('Question/edit.html.twig', [
+            'navi' => 'questions',
             'form' => $formInterface->createView(),
             'question' => $question,
         ]);

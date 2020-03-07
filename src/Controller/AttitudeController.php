@@ -29,6 +29,7 @@ class AttitudeController extends AbstractController
         $attitudes = $attitudeRepo->findAll();
 
         return $this->render('Attitude/list.html.twig', [
+            'navi' => 'attitudes',
             'attitudes' => $attitudes,
         ]);
     }
@@ -67,6 +68,7 @@ class AttitudeController extends AbstractController
         $attitudes = $attitudeRepo->findAll();
 
         return $this->render('Attitude/list.html.twig', [
+            'navi' => 'attitudes',
             'attitudes' => $attitudes,
         ]);
     }
@@ -88,6 +90,7 @@ class AttitudeController extends AbstractController
         }
 
         return $this->render('Attitude/edit.html.twig', [
+            'navi' => 'attitudes',
             'form' => $formInterface->createView(),
             'attitude' => $attitude,
         ]);

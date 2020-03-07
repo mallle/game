@@ -19,7 +19,3 @@ To start a local server run:
 ```cd public``` 
 
 ```php -S localhost:8000```
-
-
-
-

@@ -1,17 +1,25 @@
+{% import "_macros.html.twig" as macros %}
+
+{% if navi is not defined %}
+	{% set navi = '' %}
+{% endif %}
+
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title>
-			{% block title %}Welcome!
-			{% endblock %}
-		</title>
-		{% block stylesheets %}
-			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-			<link rel="stylesheet" href="{{ asset('css/main.css') }}">
-		{% endblock %}
-	</head>
+<html lang="en">
 	<body>
+
+		<head>
+			<meta charset="UTF-8">
+			<title>
+				{% block title %}Welcome!
+				{% endblock %}
+			</title>
+			{% block stylesheets %}
+				<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+				<link rel="stylesheet" href="{{ asset('css/main.css') }}">
+			{% endblock %}
+		</head>
+
 		<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
 			<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="{{path('app_homepage')}}">Game</a>
 			{# <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"> #}
@@ -28,26 +36,26 @@
 					<div class="sidebar-sticky">
 						<ul class="nav flex-column">
 							<li class="nav-item">
-								<a class="nav-link active" href="{{ path('app_stories_list')}}">
+								<a class="nav-link {{ macros.activeNavi(navi, 'stories') }}" href="{{ path('app_stories_list')}}">
 									<span data-feather="home"></span>
 									Stories
 									<span class="sr-only">(current)</span>
 								</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="{{ path('app_persons_list')}}">
+								<a class="nav-link {{ macros.activeNavi(navi, 'persons') }}" href="{{ path('app_persons_list')}}">
 									<span data-feather="file"></span>
 									Persons
 								</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="{{ path('app_questions_list')}}">
+								<a class="nav-link {{ macros.activeNavi(navi, 'questions') }}" href="{{ path('app_questions_list')}}">
 									<span data-feather="file"></span>
 									Questions
 								</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="{{ path('app_attitudes_list')}}">
+								<a class="nav-link {{ macros.activeNavi(navi, 'attitudes') }}" href="{{ path('app_attitudes_list')}}">
 									<span data-feather="file"></span>
 									Attitudes
 								</a>
@@ -58,35 +66,28 @@
 
 				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 					<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3">
-						<h1 class="h2"> {% block headline %}{% endblock %}
-							</h1>
-							<div class="btn-toolbar mb-2 mb-md-0">
-								<div class="btn-group mr-2"> {% block linksTop %}{% endblock %}
-									{# <button class="btn btn-sm btn-outline-secondary">Export</button> #}
-									</div>
-									{# <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
-																																															<span data-feather="calendar"></span>
-																																																																																																																																																																																																														This week
-																																																																																																																																																																																																													</button> #}
-								</div>
+						<h1 class="h2">{% block headline %}{% endblock %}</h1>
+						<div class="btn-toolbar mb-2 mb-md-0">
+							<div class="btn-group mr-2">
+								{% block linksTop %}{% endblock %}
+{#								 <button class="btn btn-sm btn-outline-secondary">Export</button>#}
 							</div>
-
-
-							{% block body %}{% endblock %}
-						</main>
+						</div>
 					</div>
-				</div>
-			</body>
-		</html>
-	</div>
-	{% block javascripts %}
-		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-		<!-- Icons -->
-		<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
-		<script>
-			feather.replace()
-		</script>
-	{% endblock %}
-</body></html>
+					{% block body %}{% endblock %}
+				</main>
+			</div>
+		</div>
+
+		{% block javascripts %}
+			<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+			<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+			<!-- Icons -->
+			<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+			<script>
+				feather.replace()
+			</script>
+		{% endblock %}
+	</body>
+</html>

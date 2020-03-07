@@ -1,0 +1,4 @@
+{% macro activeNavi(val_current, val_check, class = 'active') %}
+        {% if (val_current == val_check) %}{{ class }}
+        {% endif %}
+{% endmacro %}

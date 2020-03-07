@@ -29,6 +29,7 @@ class PersonController extends AbstractController
         $persons = $personRepo->findAll();
 
         return $this->render('Person/list.html.twig', [
+            'navi' => 'persons',
             'persons' => $persons,
         ]);
     }
@@ -67,6 +68,7 @@ class PersonController extends AbstractController
         $persons = $personRepo->findAll();
 
         return $this->render('Person/list.html.twig', [
+            'navi' => 'persons',
             'persons' => $persons,
         ]);
     }
@@ -88,6 +90,7 @@ class PersonController extends AbstractController
         }
 
         return $this->render('Person/edit.html.twig', [
+            'navi' => 'persons',
             'form' => $formInterface->createView(),
             'person' => $person,
         ]);

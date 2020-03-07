@@ -29,6 +29,7 @@ class StoryController extends AbstractController
         $stories = $storyRepo->findAll();
 
         return $this->render('story/list.html.twig', [
+            'navi' => 'stories',
             'stories' => $stories,
         ]);
     }
@@ -67,6 +68,7 @@ class StoryController extends AbstractController
         $stories = $storyRepo->findAll();
 
         return $this->render('story/list.html.twig', [
+            'navi' => 'stories',
             'stories' => $stories,
         ]);
     }
@@ -89,6 +91,7 @@ class StoryController extends AbstractController
         }
 
         return $this->render('story/edit.html.twig', [
+            'navi' => 'stories',
             'form' => $formInterface->createView(),
             'story' => $story,
         ]);
