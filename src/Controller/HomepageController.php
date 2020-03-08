@@ -8,7 +8,7 @@ class HomepageController extends AbstractController
 {
 
     /**
-     * @Route("/", name="app_homepage")
+     * @Route("/index", name="app_home")
      */
     public function index()
     {
