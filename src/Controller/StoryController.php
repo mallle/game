@@ -11,6 +11,11 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Class StoryController
+ * @package App\Controller
+ * @Route("/admin")
+ */
 class StoryController extends AbstractController
 {
 
